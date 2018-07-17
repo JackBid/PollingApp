@@ -1,4 +1,13 @@
 <h1>Welcome!</h1>
 {% for question in questions %}
-  <h3>{{question.question_text}}</h3>
+  <h3>{{question.title}}</h3>
+  <h4>{{question.pub_date}}</h4>
+  <form>
+      {% for choice in question.choices %}
+        <input type="radio" name="{{question.title}}">
+        <label>{{choice.choice_text}}</label>
+      {% endfor %}
+      <br />
+      <input type="submit">
+  </form>
 {% endfor %}
