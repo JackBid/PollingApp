@@ -11,21 +11,37 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Welcome!</h1>
-    {% for question in questions %}
-      <h3>{{question.title}}</h3>
-      <h4>{{question.pub_date}}</h4>
-      <form action="" method="post" id="{{question.id}}" class="form">
-          {% csrf_token %}
-          {% for choice in question.choices %}
-            <input type="radio" name="{{question.id}}" value="{{choice.choice_text}}">
-            <label>{{choice.choice_text}}</label>
-            <label>{{choice.votes}}</label>
-          {% endfor %}
-          <br />
-          <input type="submit" class="submit">
-      </form>
-    {% endfor %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">PollingApp</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+      </div>
+    </nav>
+    <div class="container">
+      <h1 style="margin:20px 0">Welcome!</h1>
+      {% for question in questions %}
+        <div class="question" style="margin:40px 0;">
+          <h3>{{question.title}}</h3>
+          <h4>{{question.pub_date}}</h4>
+          <form action="" method="post" id="{{question.id}}" class="form">
+              {% csrf_token %}
+              {% for choice in question.choices %}
+                <input type="radio" name="{{question.id}}" value="{{choice.choice_text}}">
+                <label>{{choice.choice_text}}</label>
+                <label>{{choice.votes}}</label>
+              {% endfor %}
+              <br />
+              <input type="submit" class="submit">
+          </form>
+        </div>
+      {% endfor %}
+    </div>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     {% block javascript %}
       <script>
