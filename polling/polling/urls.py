@@ -20,5 +20,6 @@ from polls import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
-    path('vote/', views.vote)
+    path('vote/', views.vote),
+    path('addquestion', views.addQuestion, name="addQuestion")
 ]

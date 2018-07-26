@@ -23,3 +23,6 @@ def vote(request):
     c.votes += 1
     c.save()
     return HttpResponse(str(c.id) + " " + str(c.choice_text) + " " + str(c.votes))
+
+def addQuestion(request):
+    return HttpResponse("Add Question Page")
