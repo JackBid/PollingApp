@@ -29,25 +29,7 @@
       </div>
     </nav>
     <div class="container">
-      <h1>Welcome!</h1>
-      {% for question in questions %}
-        <div class="question">
-          <h3>{{question.title}}</h3>
-          <h4>{{question.pub_date}}</h4>
-          <canvas id="chart-{{question.id}}" width="400" height="200"></canvas>
-          <form action="" method="post" id="{{question.id}}" class="form">
-              {% csrf_token %}
-              <div class="options">
-              {% for choice in question.choices %}
-                <input type="radio" name="{{question.id}}" value="{{choice.choice_text}}">
-                <label>{{choice.choice_text}}</label>
-              {% endfor %}
-              </div>
-              <br />
-              <input type="submit" class="submit">
-          </form>
-        </div>
-      {% endfor %}
+      <h1>Thanks for submitting a question!</h1>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     {% load static %}
@@ -55,19 +37,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
-    {% load static %}
-    <script src="{% static "polls/charts.js" %}"></script>
-    <script type="text/javascript">
-      var questions = []
-      {% for question in questions %}
-        choices = [];
-        {% for choice in question.choices %}
-          choices.push({text: "{{choice.choice_text}}", votes: {{choice.votes}} })
-        {% endfor %}
-        questions.push( {title: "{{question.title}}", id: {{question.id}}, choices: choices} );
-      {% endfor %}
-      CHARTS.init(questions);
-      CHARTS.render();
-    </script>
   </body>
 </html>
