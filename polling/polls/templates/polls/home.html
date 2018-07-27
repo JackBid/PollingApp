@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static "polls/style.css" %}">
 
@@ -39,12 +40,18 @@
               {% csrf_token %}
               <div class="options">
               {% for choice in question.choices %}
-                <input type="radio" name="{{question.id}}" value="{{choice.choice_text}}">
-                <label>{{choice.choice_text}}</label>
+
+                  <div class="pretty p-default p-round">
+                    <input type="radio" name="{{question.id}}" value="{{choice.choice_text}}">
+                    <div class="state p-primary-o">
+                      <label>{{choice.choice_text}}</label>
+                    </div>
+                  </div>
+
               {% endfor %}
               </div>
               <br />
-              <input type="submit" class="submit">
+              <input type="submit" class="btn btn-outline-primary submit">
           </form>
         </div>
       {% endfor %}

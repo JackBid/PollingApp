@@ -1,7 +1,24 @@
 h1{
-  margin: 20px 0;
+  margin: 20px auto;
 }
 
 .question{
   margin:40px 0;
+  margin-bottom: 100px;
+}
+
+.container{
+  text-align: center;
+  margin: auto;
+}
+
+.container canvas {
+  margin: auto;
+  padding: 20px;
+}
+
+.question form label{
+  margin-top: 10px;
+  margin-right: 20px;
+  color: #888;
 }
