@@ -1,10 +1,26 @@
-h1{
-  margin: 20px auto;
+
+body{
+  color: #555;
 }
 
+h1{
+  margin: 50px auto;
+}
+
+/*
+Homepage Styling
+*/
 .question{
-  margin:40px 0;
+  display: inline-block;
+  max-width: 500px;
+  margin:auto;
   margin-bottom: 100px;
+  padding:50px;
+}
+
+.question h3,
+.question h4{
+    text-align: left;
 }
 
 .container{
@@ -12,13 +28,54 @@ h1{
   margin: auto;
 }
 
+
 .container canvas {
   margin: auto;
-  padding: 20px;
 }
 
 .question form label{
   margin-top: 10px;
   margin-right: 20px;
-  color: #888;
+}
+
+/*
+Add question page Styling
+*/
+#addQuestion {
+    text-align: center;
+}
+
+#addQuestion ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#addQuestion label {
+  font-size: 20px;
+}
+
+#addQuestion label,
+#addQuestion button,
+#addQuestion input[type="submit"]{
+  display: block;
+}
+
+#addQuestion button,
+#addQuestion input[type="submit"]{
+  margin-top:20px;
+}
+
+#addQuestion input[type="text"]{
+  margin-bottom: 20px;
+}
+
+#addQuestion #title {
+  width: 400px;
+  margin-bottom: 60px;
+}
+
+.question-container {
+  margin: auto;
+  display: inline-block;
+  text-align: left;
 }

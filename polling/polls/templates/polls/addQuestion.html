@@ -14,7 +14,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">PollingApp</a>
+      <a class="navbar-brand" href="{% url 'home' %}">PollingApp</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,20 +31,24 @@
     <div class="container">
       <h1>Add a New Question!</h1>
       <form action="../submitted" method="get" id="addQuestion" class="form">
-        <label>Question Title</label>
-        <input type="text" name="title"/>
-        <ul id="options">
-          <li class="option">
-            <label>Option 1</label>
-            <input type="text" name="option-1"/>
-          </li>
-          <li class="option">
-            <label>Option 2</label>
-            <input type="text" name="option-2"/>
-          </li>
-        </ul>
-        <button type="button" id="add-option">Add Option</button>
-        <input type="submit" class="submit">
+        <div class="question-container">
+          <div class="input">
+            <label>Question Title:</label>
+            <input type="text" name="title" id="title" autocomplete="off"/>
+          </div>
+          <ul id="options">
+            <li class="option input">
+              <label>Option 1:</label>
+              <input type="text" name="option-1" autocomplete="off"/>
+            </li>
+            <li class="option input">
+              <label>Option 2:</label>
+              <input type="text" name="option-2" autocomplete="off"/>
+            </li>
+          </ul>
+          <button type="button" id="add-option" class="btn btn-outline-secondary">Add Option</button>
+          <input type="submit" class="btn btn-outline-primary submit">
+        </div>
       </form>
 
     </div>
@@ -57,7 +61,7 @@
     <script>
       $("#add-option").click(function(){
         var num = $("#options li").length + 1;
-        $("#options").append("<li class='option'><label>Option " + num +"</label><input type='text' name='option-"+ num +"'/></li>")
+        $("#options").append("<li class='option input'><label>Option " + num +":</label><input type='text' name='option-"+ num +"'/></li>")
       })
     </script>
   </body>
